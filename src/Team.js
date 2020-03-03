@@ -9,7 +9,11 @@ const Team = props => {
       player={player}
       addPoints={props.addPoints}
       substractPoint={props.substractPoint}
-      deletePlayer={() => props.deletePlayer(i)}
+      deletePlayer={() => {
+        if (window.confirm("I'm trying to remove player #" + i)) {
+          props.deletePlayer(i);
+        }
+      }}
       admin={props.admin}
       canRemove={props.lastActionId}
     />
